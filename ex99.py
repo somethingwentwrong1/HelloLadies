@@ -1,16 +1,11 @@
-import sys
+import sys,string
 
-def write():
-    print('Creating new text file') 
+name = raw_input('What is your name?: ')
+family_name =  raw_input('What is your family name?: ')
+phone =  raw_input('What is your phone number?: ')
+home_address = raw_input('What is your home address?: ')
+email_address = raw_input('What is your email address?: ')
 
-    name = input('Enter name of text file: ')+'.txt'  # Name of text file coerced with +.txt
-
-    try:
-        file = open(name,'r+')   # Trying to create a new file or open one
-        file.close()
-
-    except:
-        print('Something went wrong! Can\'t tell what?')
-        sys.exit(0) # quit Python
-
-write()
+output_file = open(name.lower()+family_name+'.txt', 'w')
+output_file.write(("Your Name is %s Your Family Name is %s Your Phone Number is %s Your Home Address is %s Your Email Address is %s") % (name, family_name, phone, home_address, email_address))
+output_file.close()
