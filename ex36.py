@@ -63,8 +63,8 @@ def training():
 
 
 def ready():
-    print "Chris: 'FuXX yeah! We are finally going out to the battle field!'"
-    print "Chris: 'Let's fuxx up those yellow bastards!'"
+    print "Chris: 'Oh yeah! We are finally going out to the battle field!'"
+    print "Chris: 'Let's kill those yellow guys!'"
     in_war()
 
 
@@ -88,10 +88,10 @@ def in_war():
 
 
 def landed():
-    print "Chris: 'Fuxx.. We have survived.. but what shall we do.."
+    print "Chris: 'No.. We have survived.. but what shall we do.."
     print "Chris: 'We've got only 12 men, and the enemies are about 30."
     print "Bill: 'Enemy spotted!!'"
-    print "Chris: 'Shxt! Duck down!!'"
+    print "Chris: 'Hey! Duck down!!'"
     print "What will you do? 1)Duck down 2)Run to the building in front of you"
 
     choice = raw_input("> ")
@@ -103,7 +103,7 @@ def landed():
     elif choice == "Run to the building in front of you":
         print "You've dodged the bullets and went into building safely,"
         print "but your comrades are going to the other way."
-        print "Chris: Damx! Hey!! Come back!!!"
+        print "Chris: Oh man! Hey!! Come back!!!"
         left_alone()
 
 
@@ -163,7 +163,6 @@ def shoot2():
     elif choice == "Move on":
         print "You are spotted by the enemies."
         print "You are dead without doing anything."
-        print "No Dap."
         print "Greedy Ending"
         credit()
 
@@ -198,7 +197,7 @@ def battle():
 
 
 def move_on1():
-    print "Chris: 'Go! Go! It's  time to slaughter those bastards!!'"
+    print "Chris: 'Go! Go! It's  time to slaughter those guys!!'"
     print "The comrades shut down all the enemies."
     print "Chris and you have killed all the enemy snipers."
     victory1()
