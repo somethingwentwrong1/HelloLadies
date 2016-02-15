@@ -1,4 +1,3 @@
-# from python system, import exit and randint (random integer)
 from sys import exit
 from random import randint
 
@@ -24,7 +23,8 @@ class Engine(object):
         while current_scene != last_scene:
             next_scene_name = current_scene.enter()
             current_scene = self.scene_map.next_scene(next_scene_name)
-            current_scene.enter()
+
+        current_scene.enter()
 
 
 class Death(Scene):
@@ -60,16 +60,18 @@ class CentralCorridor(Scene):
         print "2. Fight against the soldiers"
         print "3. Get in to the mysterious room beside you"
 
-        a = raw_input("\n >>>")
+        a = int(input("\n>>>"))
 
-        if a == "1":
+        if a == 1:
             print "You stayed in Joseon 'til you died."
             return 'death'
-        elif a == "2":
+
+        elif a == 2:
             print "You were oppressed by the soldiers, and got imprisoned."
             print "You stayed in Joseon 'til you died."
             return 'death'
-        elif a == "3":
+
+        elif a == 3:
             print "The mysterious room was the laser weapon armory."
             return 'laser_weapon_armory'
         else:
@@ -81,41 +83,40 @@ class CentralCorridor(Scene):
 class LaserWeaponArmory(Scene):
 
     def enter(self):
-        import random
-        print("Here's the Laser Weapon Armory where")
-        print("you can acquire a killing weapon.")
-        print("Suddenly you hear the footstep of the")
-        print("soldiers outside the armory.")
-        print("Now the door is opening, and you see a gun on the table.")
-        print("In order to shoot, You hold up the gun.")
-        print("Whether it is a weapon or a toy will be depend on your luck.")
-        raw_input("Press Enter to check your luck")
-        number = random.randint(1, 6)
+        print "Here's the Laser Weapon Armory where"
+        print "you can acquire a killing weapon."
+        print "Suddenly you hear the footstep of the"
+        print "soldiers outside the armory."
+        print "Now the door is opening, and you see a gun on the table."
+        print "In order to shoot, You hold up the gun."
+        print "Whether it is a weapon or a toy will be depend on your luck."
+        raw_input("\nPRESS ENTER TO CHECK YOUR LUCK")
+        number = randint(1, 6)
         if number == 1:
-            print("Bad luck. You shot the bb gun.")
-            print("You're arrested by the soldiers.")
+            print "Bad luck. You shot the bb gun."
+            print"You're arrested by the soldiers.\n"
             return 'death'
-        elif number == 2:
-            print("Bang!")
-            print("Well, your gun is a real one, but the soldiers")
-            print("are equipped with bulletproof clothes.")
-            print("Soldier shot by you shot you back.")
+        if number == 2:
+            print "Bang!"
+            print "Well, your gun is a real one, but the soldiers"
+            print "are equipped with bulletproof clothes."
+            print "Soldier shot by you shot you back.\n"
             return 'death'
-        elif number == 3:
-            print("Bang! Bang! Bang!")
-            print("Out of Ammo")
+        if number == 3:
+            print "Bang! Bang! Bang!"
+            print "Out of Ammo\n"
             return 'death'
-        elif number == 4:
-            print("Pew!")
-            print("You chose a laser gun. You killed all the soldiers")
+        if number == 4:
+            print "Pew!"
+            print "You chose a laser gun. You killed all the soldiers"
             return 'the_bridge'
-        elif number == 5:
-            print("Pew!")
-            print("You chose a laser gun. You killed all the soldiers")
+        if number == 5:
+            print "Pew!"
+            print "You chose a laser gun. You killed all the soldiers"
             return 'the_bridge'
-        elif number == 6:
-            print("Pew!")
-            print("You chose a laser gun. You killed all the soldiers")
+        if number == 6:
+            print "Pew!"
+            print "You chose a laser gun. You killed all the soldiers"
             return 'the_bridge'
 
 
@@ -131,17 +132,17 @@ class TheBridge(Scene):
         print "2. Fight against the aligator."
         print "3. Go down to the river and swim."
 
-        b = raw_input("\n >>>")
+        b = int(input("\n>>>"))
 
-        if b == "1":
+        if b == 1:
             print "You stayed in Joseon 'til you died."
             return 'death'
-        elif b == "2":
+        elif b == 2:
             print "The aligator bit your hand."
             print "The aligator wasn't hungry."
             print "It said sorry and let you go."
             return 'escape_pod'
-        elif b == "3":
+        elif b == 3:
             print "Obviously, the aligators were there.."
             return 'death'
         else:
@@ -160,18 +161,18 @@ class EscapePod(Scene):
         print "2. second pod"
         print "3. third pod"
 
-        c = raw_input("\n >>>")
+        c = int(input("\n>>>"))
 
-        if c == "1":
+        if c == 1:
             print "You've rode a ship to Japan"
             print "Another journey's waiting for you. :)"
             exit(0)
-        elif c == "2":
+        elif c == 2:
             print "You've rode a ship to Netherland."
             print "Your family is waiting for you."
             print "Happy Ending"
             return 'ending'
-        elif c == "3":
+        elif c == 3:
             print "The ship you rode sank in the middle of the sea."
             return 'death'
         else:
