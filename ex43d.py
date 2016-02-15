@@ -29,12 +29,12 @@ class Engine(object):
 
 class Death(Scene):
 
-    def enter(self):
-        gg = [
+    gg = [
          "You failed to survive.",
          "I think you needed some more skill to play this",
          "Beinging such a coward.",
-         "Well basically you suck."]
+         "Well basically you suck."
+         ]
 
     def enter(self):
         print Death.gg[randint(0, len(self.gg)-1)]
@@ -62,16 +62,16 @@ class CentralCorridor(Scene):
 
         a = raw_input("\n >>>")
 
-        if a == 1:
+        if a == "1":
             print "You stayed in Joseon 'til you died."
-            return 'Death'
-        elif a == 2:
+            return 'death'
+        elif a == "2":
             print "You were oppressed by the soldiers, and got imprisoned."
             print "You stayed in Joseon 'til you died."
-            return 'Death'
-        elif a == 3:
+            return 'death'
+        elif a == "3":
             print "The mysterious room was the laser weapon armory."
-            return 'LaserWeaponArmory'
+            return 'laser_weapon_armory'
         else:
             print "One who cannot even type in the number is not qualified"
             print "to play this game."
@@ -94,29 +94,29 @@ class LaserWeaponArmory(Scene):
         if number == 1:
             print("Bad luck. You shot the bb gun.")
             print("You're arrested by the soldiers.")
-            return 'Death'
-        if number == 2:
+            return 'death'
+        elif number == 2:
             print("Bang!")
             print("Well, your gun is a real one, but the soldiers")
             print("are equipped with bulletproof clothes.")
             print("Soldier shot by you shot you back.")
-            return 'Death'
-        if number == 3:
+            return 'death'
+        elif number == 3:
             print("Bang! Bang! Bang!")
             print("Out of Ammo")
-            return 'Death'
-        if number == 4:
+            return 'death'
+        elif number == 4:
             print("Pew!")
             print("You chose a laser gun. You killed all the soldiers")
-            return 'The Bridge'
-        if number == 5:
+            return 'the_bridge'
+        elif number == 5:
             print("Pew!")
             print("You chose a laser gun. You killed all the soldiers")
-            return 'The Bridge'
-        if number == 6:
+            return 'the_bridge'
+        elif number == 6:
             print("Pew!")
             print("You chose a laser gun. You killed all the soldiers")
-            return 'The Bridge'
+            return 'the_bridge'
 
 
 class TheBridge(Scene):
@@ -133,17 +133,17 @@ class TheBridge(Scene):
 
         b = raw_input("\n >>>")
 
-        if b == 1:
+        if b == "1":
             print "You stayed in Joseon 'til you died."
-            return 'Death'
-        elif b == 2:
+            return 'death'
+        elif b == "2":
             print "The aligator bit your hand."
             print "The aligator wasn't hungry."
             print "It said sorry and let you go."
-            EscapePod()
-        elif b == 3:
+            return 'escape_pod'
+        elif b == "3":
             print "Obviously, the aligators were there.."
-            return 'Death'
+            return 'death'
         else:
             print "One who cannot even type in the number is not qualified"
             print "to play this game."
@@ -162,18 +162,22 @@ class EscapePod(Scene):
 
         c = raw_input("\n >>>")
 
-        if c == 1:
+        if c == "1":
             print "You've rode a ship to Japan"
             print "Another journey's waiting for you. :)"
             exit(0)
-        elif c == 2:
+        elif c == "2":
             print "You've rode a ship to Netherland."
             print "Your family is waiting for you."
             print "Happy Ending"
             return 'ending'
-        elif c == 3:
+        elif c == "3":
             print "The ship you rode sank in the middle of the sea."
-            return 'Death'
+            return 'death'
+        else:
+            print "One who cannot even type in the number is not qualified"
+            print "to play this game."
+            exit(0)
 
 
 class Ending():
@@ -193,7 +197,6 @@ class Map(object):
         'escape_pod': EscapePod(),
         'death': Death(),
         'ending': Ending()
-
     }
 
     def __init__(self, start_scene):
